@@ -1,24 +1,26 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: replicaset-name
+  name: deployment-name
   labels:
     app: myapp
 spec:
+  strategy:
+    type: RollingUpdate
+  replicas: 3
+  selector:
+    matchLabels:
+      type: backend
   template:
     metadata:
-      name: pod-name
+      name: nginx-pod
       labels:
-        app: app-label
+        type: backend
     spec:
       containers:
-        - name: nginx-controller
+        - name: nginx-container
           image: nginx
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
-  replicas: 3
-  selector:
-    matchLabels:
-      app: app-label
