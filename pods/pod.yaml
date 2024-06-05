@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-name
+  labels:
+    app: app-label
+spec:
+  containers:
+    - name: nginx-controller
+      image: nginx
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
