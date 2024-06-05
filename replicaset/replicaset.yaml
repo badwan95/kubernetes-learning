@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Replicaset
+metadata:
+  name: replicaset-name
+  labels:
+    app: myapp
+spec:
+  template:
+    metadata:
+      name: pod-name
+      labels:
+        app: app-label
+    spec:
+      containers:
+        - name: nginx-controller
+          image: nginx
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-label
