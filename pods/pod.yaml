@@ -8,6 +8,8 @@ spec:
   containers:
     - name: nginx-controller
       image: nginx
+      # args: ["10"] # If arguments are needed, use this
+      # command: ["sleep"] # If a different command is needed, use this
       resources:
         limits:
           memory: "128Mi"

@@ -6,6 +6,12 @@ Learning notes and files for kubernetes
 
 - You can get the status of many kubernetes components by running `kubectl get <component>`, add `-o <type, such as json>` for the output to be different style.
 - To check if a command or file work as expected without executing the command/file, add the flag `--dry-run=client`.
+
+## Imperative commands
+
+- To create a pod with an image, do `kubectl run <podname> --image=<image-name>`.
+- There are some flags you can use, such as: `--labels=key1=value1,key2=value2`, `--port=5432`.
+
 - To generate a file quickly without typing it from scratch, you can use this command `kubectl run nginx --image=nginx --dry-run=client -o yaml > <file-name>.yaml`, you can do that for deployment as well, with `kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > <deployment-file>.yaml`.
 
 ## Namespaces
